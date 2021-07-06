@@ -5,7 +5,7 @@ Available toolchain options (by toolchain)
 
 *(see also* ``eb --avail-toolchain-opts <tcname>`` *)*
 
-ClangGCC_ - CrayCCE_ - CrayGNU_ - CrayIntel_ - CrayPGI_ - GCC_ - GCCcore_ - GNU_ - PGI_ - cgmpich_ - cgmpolf_ - cgmvapich2_ - cgmvolf_ - cgompi_ - cgoolf_ - foss_ - fosscuda_ - gcccuda_ - gimkl_ - gimpi_ - gimpic_ - giolf_ - giolfc_ - gmacml_ - gmkl_ - gmklc_ - gmpich2_ - gmpich_ - gmpolf_ - gmvapich2_ - gmvolf_ - goalf_ - goblf_ - golf_ - golfc_ - gomkl_ - gomklc_ - gompi_ - gompic_ - goolf_ - goolfc_ - gpsmpi_ - gpsolf_ - gqacml_ - gsmpi_ - gsolf_ - iccifort_ - iccifortcuda_ - ictce_ - iimkl_ - iimklc_ - iimpi_ - iimpic_ - iiqmpi_ - impich_ - impmkl_ - intel-para_ - intel_ - intelcuda_ - iomkl_ - iomklc_ - iompi_ - iompic_ - ipsmpi_ - iqacml_ - ismkl_ - pmkl_ - pomkl_ - pompi_ - system_ - xlcxlf_ - xlmpich2_ - xlmpich_ - xlmvapich2_ - xlompi_
+ClangGCC_ - CrayCCE_ - CrayGNU_ - CrayIntel_ - CrayPGI_ - FCC_ - Fujitsu_ - GCC_ - GCCcore_ - GNU_ - NVHPC_ - PGI_ - cgmpich_ - cgmpolf_ - cgmvapich2_ - cgmvolf_ - cgompi_ - cgoolf_ - ffmpi_ - foss_ - fosscuda_ - gcccuda_ - gimkl_ - gimpi_ - gimpic_ - giolf_ - giolfc_ - gmacml_ - gmkl_ - gmklc_ - gmpich2_ - gmpich_ - gmpolf_ - gmvapich2_ - gmvolf_ - goalf_ - gobff_ - goblf_ - gofbf_ - golf_ - golfc_ - gomkl_ - gomklc_ - gompi_ - gompic_ - goolf_ - goolfc_ - gpsmpi_ - gpsolf_ - gqacml_ - gsmpi_ - gsolf_ - iccifort_ - iccifortcuda_ - ictce_ - iibff_ - iiblf_ - iimkl_ - iimklc_ - iimpi_ - iimpic_ - iiqmpi_ - impich_ - impmkl_ - intel-compilers_ - intel-para_ - intel_ - intelcuda_ - iomkl_ - iomklc_ - iompi_ - iompic_ - ipsmpi_ - iqacml_ - ismkl_ - nvompic_ - pmkl_ - pomkl_ - pompi_ - system_ - xlcxlf_ - xlmpich2_ - xlmpich_ - xlmvapich2_ - xlompi_
 
 .. _ClangGCC:
 
@@ -22,6 +22,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loop-vectorize``           Loop vectorization                                                         ``False``
@@ -61,6 +66,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                                                                                                                                                                                                                     ``False``
 ``defaultprec``              Default precision                                                                                                                                                                                                                                                  ``False``
 ``dynamic``                  Generate dynamically linked executable                                                                                                                                                                                                                             ``True`` 
+``extra_cflags``             Specify extra CFLAGS options.                                                                                                                                                                                                                                      ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                                                                                                                                                                                                                     ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                                                                                                                                                                                                                      ``None`` 
 ``i8``                       Integers are 8 byte integers                                                                                                                                                                                                                                       ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                                                                                                                                                                                                           ``False``
 ``loose``                    Loose precision                                                                                                                                                                                                                                                    ``False``
@@ -101,6 +111,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                                                                                                                                                                                                                     ``False``
 ``defaultprec``              Default precision                                                                                                                                                                                                                                                  ``False``
 ``dynamic``                  Generate dynamically linked executable                                                                                                                                                                                                                             ``True`` 
+``extra_cflags``             Specify extra CFLAGS options.                                                                                                                                                                                                                                      ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                                                                                                                                                                                                                     ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                                                                                                                                                                                                                      ``None`` 
 ``i8``                       Integers are 8 byte integers                                                                                                                                                                                                                                       ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                                                                                                                                                                                                           ``False``
 ``loose``                    Loose precision                                                                                                                                                                                                                                                    ``False``
@@ -141,6 +156,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                                                                                                                                                                                                                     ``False``
 ``defaultprec``              Default precision                                                                                                                                                                                                                                                  ``False``
 ``dynamic``                  Generate dynamically linked executable                                                                                                                                                                                                                             ``True`` 
+``extra_cflags``             Specify extra CFLAGS options.                                                                                                                                                                                                                                      ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                                                                                                                                                                                                                     ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                                                                                                                                                                                                                      ``None`` 
 ``i8``                       Integers are 8 byte integers                                                                                                                                                                                                                                       ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                                                                                                                                                                                                           ``False``
 ``loose``                    Loose precision                                                                                                                                                                                                                                                    ``False``
@@ -181,6 +201,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                                                                                                                                                                                                                     ``False``
 ``defaultprec``              Default precision                                                                                                                                                                                                                                                  ``False``
 ``dynamic``                  Generate dynamically linked executable                                                                                                                                                                                                                             ``True`` 
+``extra_cflags``             Specify extra CFLAGS options.                                                                                                                                                                                                                                      ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                                                                                                                                                                                                                    ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                                                                                                                                                                                                                     ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                                                                                                                                                                                                                      ``None`` 
 ``i8``                       Integers are 8 byte integers                                                                                                                                                                                                                                       ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                                                                                                                                                                                                           ``False``
 ``loose``                    Loose precision                                                                                                                                                                                                                                                    ``False``
@@ -206,6 +231,91 @@ option                       description                                        
 =========================    ===============================================================================================================================================================================================================================================================    =========
 
 
+.. _FCC:
+
+Available options for FCC toolchain
+-----------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _Fujitsu:
+
+Available options for Fujitsu toolchain
+---------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``usempi``                   Use MPI compiler as default compiler                                       ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
 .. _GCC:
 
 Available options for GCC toolchain
@@ -220,6 +330,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -260,6 +375,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -300,6 +420,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -307,6 +432,48 @@ option                       description                                        
 ``loose``                    Loose precision                                                            ``False``
 ``lowopt``                   Low compiler optimizations                                                 ``False``
 ``lto``                      Enable Link Time Optimization                                              ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _NVHPC:
+
+Available options for NVHPC toolchain
+-------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
 ``noopt``                    Disable compiler optimizations                                             ``False``
 ``openmp``                   Enable OpenMP                                                              ``False``
 ``opt``                      High compiler optimizations                                                ``False``
@@ -340,6 +507,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loose``                    Loose precision                                                            ``False``
@@ -378,6 +550,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loop-vectorize``           Loop vectorization                                                         ``False``
@@ -418,6 +595,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loop-vectorize``           Loop vectorization                                                         ``False``
@@ -458,6 +640,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loop-vectorize``           Loop vectorization                                                         ``False``
@@ -498,6 +685,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loop-vectorize``           Loop vectorization                                                         ``False``
@@ -538,6 +730,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loop-vectorize``           Loop vectorization                                                         ``False``
@@ -578,9 +775,57 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loop-vectorize``           Loop vectorization                                                         ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``usempi``                   Use MPI compiler as default compiler                                       ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _ffmpi:
+
+Available options for ffmpi toolchain
+-------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loose``                    Loose precision                                                            ``False``
 ``lowopt``                   Low compiler optimizations                                                 ``False``
 ``noopt``                    Disable compiler optimizations                                             ``False``
@@ -617,6 +862,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -658,6 +908,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -699,6 +954,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -739,6 +999,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -780,6 +1045,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -821,6 +1091,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -862,6 +1137,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -903,6 +1183,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -944,6 +1229,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -985,6 +1275,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1025,6 +1320,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1065,6 +1365,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1106,6 +1411,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1147,6 +1457,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1188,6 +1503,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1229,6 +1549,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1270,6 +1595,57 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``f2c``                      Generate code compatible with f2c and f77                                  ``False``
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``loop``                     Automatic loop parallellisation                                            ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``lto``                      Enable Link Time Optimization                                              ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``usempi``                   Use MPI compiler as default compiler                                       ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _gobff:
+
+Available options for gobff toolchain
+-------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1311,6 +1687,57 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``f2c``                      Generate code compatible with f2c and f77                                  ``False``
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``loop``                     Automatic loop parallellisation                                            ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``lto``                      Enable Link Time Optimization                                              ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``usempi``                   Use MPI compiler as default compiler                                       ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _gofbf:
+
+Available options for gofbf toolchain
+-------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1352,6 +1779,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1392,6 +1824,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1432,6 +1869,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1473,6 +1915,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1514,6 +1961,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1555,6 +2007,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1596,6 +2053,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1637,6 +2099,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1678,6 +2145,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1719,6 +2191,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1760,6 +2237,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1801,6 +2283,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1842,6 +2329,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``f2c``                      Generate code compatible with f2c and f77                                  ``False``
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -1884,6 +2376,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -1924,6 +2421,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -1964,6 +2466,103 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``intel-static``             Link Intel provided libraries statically                                   ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``no-icc``                   Don't set Intel specific macros                                            ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``usempi``                   Use MPI compiler as default compiler                                       ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _iibff:
+
+Available options for iibff toolchain
+-------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``intel-static``             Link Intel provided libraries statically                                   ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``no-icc``                   Don't set Intel specific macros                                            ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``usempi``                   Use MPI compiler as default compiler                                       ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _iiblf:
+
+Available options for iiblf toolchain
+-------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2005,6 +2604,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2045,6 +2649,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2085,6 +2694,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2126,6 +2740,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2167,6 +2786,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2208,6 +2832,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2249,6 +2878,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2275,6 +2909,51 @@ option                       description                                        
 =========================    =======================================================================    =========
 
 
+.. _intel-compilers:
+
+Available options for intel-compilers toolchain
+-----------------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``intel-static``             Link Intel provided libraries statically                                   ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
+``no-icc``                   Don't set Intel specific macros                                            ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
 .. _intel-para:
 
 Available options for intel-para toolchain
@@ -2290,6 +2969,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2331,6 +3015,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2372,6 +3061,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2413,6 +3107,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2454,6 +3153,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2495,6 +3199,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2536,6 +3245,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2577,6 +3291,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2618,6 +3337,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
@@ -2659,12 +3383,60 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``intel-static``             Link Intel provided libraries statically                                   ``False``
 ``loose``                    Loose precision                                                            ``False``
 ``lowopt``                   Low compiler optimizations                                                 ``False``
 ``no-icc``                   Don't set Intel specific macros                                            ``False``
+``noopt``                    Disable compiler optimizations                                             ``False``
+``openmp``                   Enable OpenMP                                                              ``False``
+``opt``                      High compiler optimizations                                                ``False``
+``optarch``                  Enable architecture optimizations                                          ``True`` 
+``packed-linker-options``    Pack the linker options as comma separated list                            ``False``
+``pic``                      Use PIC                                                                    ``False``
+``precise``                  High precision                                                             ``False``
+``r8``                       Real is 8 byte real                                                        ``False``
+``rpath``                    Use RPATH wrappers when --rpath is enabled in EasyBuild configuration      ``True`` 
+``shared``                   Build shared library                                                       ``False``
+``static``                   Build static library                                                       ``False``
+``strict``                   Strict (highest) precision                                                 ``False``
+``unroll``                   Unroll loops                                                               ``False``
+``usempi``                   Use MPI compiler as default compiler                                       ``False``
+``vectorize``                Enable compiler auto-vectorization, default except for noopt and lowopt    ``None`` 
+``verbose``                  Verbose output                                                             ``False``
+``veryloose``                Very loose precision                                                       ``False``
+=========================    =======================================================================    =========
+
+
+.. _nvompic:
+
+Available options for nvompic toolchain
+---------------------------------------
+
+=========================    =======================================================================    =========
+option                       description                                                                default  
+=========================    =======================================================================    =========
+``32bit``                    Compile 32bit target                                                       ``False``
+``cciscxx``                  Use CC as CXX                                                              ``False``
+``cstd``                     Specify C standard                                                         ``None`` 
+``debug``                    Enable debug                                                               ``False``
+``defaultopt``               Default compiler optimizations                                             ``False``
+``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
+``i8``                       Integers are 8 byte integers                                               ``False``
+``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
+``loose``                    Loose precision                                                            ``False``
+``lowopt``                   Low compiler optimizations                                                 ``False``
 ``noopt``                    Disable compiler optimizations                                             ``False``
 ``openmp``                   Enable OpenMP                                                              ``False``
 ``opt``                      High compiler optimizations                                                ``False``
@@ -2699,6 +3471,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loose``                    Loose precision                                                            ``False``
@@ -2736,6 +3513,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loose``                    Loose precision                                                            ``False``
@@ -2774,6 +3556,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loose``                    Loose precision                                                            ``False``
@@ -2812,6 +3599,11 @@ option                       description                                        
 ``debug``                    Enable debug                                                               ``False``
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
 ``loose``                    Loose precision                                                            ``False``
@@ -2850,6 +3642,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ibm-static``               Link IBM XL provided libraries statically                                  ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -2889,6 +3686,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ibm-static``               Link IBM XL provided libraries statically                                  ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -2929,6 +3731,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ibm-static``               Link IBM XL provided libraries statically                                  ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -2969,6 +3776,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ibm-static``               Link IBM XL provided libraries statically                                  ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``
@@ -3009,6 +3821,11 @@ option                       description                                        
 ``defaultopt``               Default compiler optimizations                                             ``False``
 ``defaultprec``              Default precision                                                          ``False``
 ``error-unknown-option``     Error instead of warning for unknown options                               ``False``
+``extra_cflags``             Specify extra CFLAGS options.                                              ``None`` 
+``extra_cxxflags``           Specify extra CXXFLAGS options.                                            ``None`` 
+``extra_f90flags``           Specify extra F90FLAGS options.                                            ``None`` 
+``extra_fcflags``            Specify extra FCFLAGS options.                                             ``None`` 
+``extra_fflags``             Specify extra FFLAGS options.                                              ``None`` 
 ``i8``                       Integers are 8 byte integers                                               ``False``
 ``ibm-static``               Link IBM XL provided libraries statically                                  ``False``
 ``ieee``                     Adhere to IEEE-754 rules                                                   ``False``

@@ -8,6 +8,7 @@
     * EB_ABAQUS
     * EB_Allinea
     * EB_Anaconda
+    * EB_AOMP
     * EB_CPLEX
     * EB_CUDA
     * EB_EPD
@@ -21,8 +22,10 @@
 
       * EB_ANSYS
       * EB_ant
+      * EB_AOCC
       * EB_BiSearch
       * EB_Chimera
+      * EB_code_minus_server
       * EB_COMSOL
       * EB_FDTD_underscore_Solutions
       * EB_FLUENT
@@ -30,6 +33,7 @@
       * EB_Java
       * EB_MATLAB
       * EB_MCR
+      * EB_NVHPC
       * EB_PGI
       * EB_Samcef
       * EB_Stata
@@ -45,6 +49,7 @@
 
     * BuildEnv
     * CrayToolchain
+    * EB_OpenSSL_wrapper
     * PythonBundle
     * SystemCompiler
     * SystemMPI
@@ -59,31 +64,37 @@
       * CMakePythonPackage
 
         * EB_DOLFIN
+        * EB_pybind11
         * EB_UFC
 
+      * EB_Amber
       * EB_Armadillo
       * EB_BamTools
       * EB_Blender
       * EB_CGAL
       * EB_Clang
-      * EB_DIRAC
       * EB_Doxygen
       * EB_Eigen
+      * EB_ELSI
+      * EB_FlexiBLAS
       * EB_GATE
       * EB_Geant4
       * EB_GROMACS
+      * EB_LAMMPS
+      * EB_LLVM
       * EB_netCDF
       * EB_OpenBabel
       * EB_OpenCV
       * EB_PSI
       * EB_ROOT
+      * EB_ScaLAPACK
       * EB_SuperLU
       * EB_Trilinos
 
     * ConfigureMakePythonPackage
-    * EB_Amber
     * EB_ARB
     * EB_ATLAS
+    * EB_BerkeleyGW
     * EB_binutils
     * EB_BLACS
     * EB_Bowtie
@@ -91,6 +102,7 @@
     * EB_bzip2
     * EB_CBLAS
     * EB_Chapel
+    * EB_CMake
     * EB_cppcheck
     * EB_Cufflinks
     * EB_DB
@@ -104,6 +116,7 @@
     * EB_Ferret
     * EB_FFTW
     * EB_flex
+    * EB_FreeFEM
     * EB_freetype
     * EB_g2clib
     * EB_g2lib
@@ -119,6 +132,7 @@
     * EB_HPL
     * EB_Hypre
     * EB_LAPACK
+    * EB_libdrm
     * EB_Libint
     * EB_libQGLViewer
     * EB_libxml2
@@ -137,6 +151,7 @@
     * EB_MUMmer
     * EB_MUMPS
     * EB_MyMediaLite
+    * EB_NCCL
     * EB_ncurses
     * EB_netCDF_minus_Fortran
     * EB_NEURON
@@ -163,7 +178,6 @@
     * EB_R
     * EB_Ruby
     * EB_SAMtools
-    * EB_ScaLAPACK
     * EB_Scalasca1
     * EB_Score_minus_P
     * EB_SHRiMP
@@ -175,8 +189,10 @@
     * EB_TAU
     * EB_tbb
     * EB_tbb
+    * EB_UCX_Plugins
     * EB_Velvet
     * EB_VMD
+    * EB_XALT
     * EB_XCrySDen
     * MakeCp
 
@@ -202,7 +218,9 @@
   * EB_ALADIN
   * EB_Bazel
   * EB_Boost
+  * EB_CFDEMcoupling
   * EB_CHARMM
+  * EB_code_minus_server
   * EB_CP2K
   * EB_FSL
   * EB_GAMESS_minus_US
@@ -230,6 +248,7 @@
   * EB_WRF_minus_Fire
   * ExtensionEasyBlock
 
+    * EB_Scipion
     * OCamlPackage
     * OctavePackage
     * PerlModule
@@ -238,21 +257,27 @@
       * CMakePythonPackage
 
         * EB_DOLFIN
+        * EB_pybind11
         * EB_UFC
 
       * ConfigureMakePythonPackage
       * EB_cryptography
+      * EB_dm_minus_reverb
       * EB_EasyBuildMeta
       * EB_EggLib
       * EB_libxml2
+      * EB_Metagenome_Atlas
       * EB_netcdf4_minus_python
       * EB_nose
       * EB_numexpr
       * EB_PyQuante
       * EB_python_minus_meep
+      * EB_PyTorch
       * EB_PyZMQ
+      * EB_SEPP
       * EB_TensorFlow
       * EB_TensorRT
+      * EB_torchvision
       * EB_VSC_minus_tools
       * EB_wxPython
       * FortranPythonPackage
@@ -276,6 +301,7 @@
 
     * RubyGem
 
+  * GoPackage
   * IntelBase
 
     * EB_Advisor
@@ -299,6 +325,7 @@
       * SystemMPI
 
     * EB_Inspector
+    * EB_intel_minus_compilers
     * EB_ipp
     * EB_itac
     * EB_tbb
@@ -308,14 +335,17 @@
   * MesonNinja
 
     * CMakeNinja
+    * EB_Mesa
 
   * ModuleRC
   * PackedBinary
 
     * EB_ANSYS
     * EB_ant
+    * EB_AOCC
     * EB_BiSearch
     * EB_Chimera
+    * EB_code_minus_server
     * EB_COMSOL
     * EB_FDTD_underscore_Solutions
     * EB_FLUENT
@@ -323,6 +353,7 @@
     * EB_Java
     * EB_MATLAB
     * EB_MCR
+    * EB_NVHPC
     * EB_PGI
     * EB_Samcef
     * EB_Stata
@@ -351,6 +382,7 @@
 
   * ExtensionEasyBlock
 
+    * EB_Scipion
     * OCamlPackage
     * OctavePackage
     * PerlModule
@@ -359,21 +391,27 @@
       * CMakePythonPackage
 
         * EB_DOLFIN
+        * EB_pybind11
         * EB_UFC
 
       * ConfigureMakePythonPackage
       * EB_cryptography
+      * EB_dm_minus_reverb
       * EB_EasyBuildMeta
       * EB_EggLib
       * EB_libxml2
+      * EB_Metagenome_Atlas
       * EB_netcdf4_minus_python
       * EB_nose
       * EB_numexpr
       * EB_PyQuante
       * EB_python_minus_meep
+      * EB_PyTorch
       * EB_PyZMQ
+      * EB_SEPP
       * EB_TensorFlow
       * EB_TensorRT
+      * EB_torchvision
       * EB_VSC_minus_tools
       * EB_wxPython
       * FortranPythonPackage

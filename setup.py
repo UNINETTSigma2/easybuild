@@ -36,7 +36,7 @@ from distutils.core import setup
 
 # note: release candidates should be versioned as a pre-release, e.g. "1.1rc1"
 # 1.1-rc1 would indicate a post-release, i.e., and update of 1.1, so beware
-VERSION = '4.1.1'
+VERSION = '4.4.1'
 
 
 # Utility function to read README file
@@ -69,17 +69,26 @@ on High Performance Computing (HPC) systems in an efficient way.""",
         "Intended Audience :: System Administrators",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Operating System :: POSIX :: Linux",
-        "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Topic :: Scientific/Engineering",
         "Topic :: Software Development :: Build Tools",
     ],
     platforms="Linux",
     # for distutils
-    requires=['easybuild_%s(==%s)' % (x, VERSION) for x in ['framework', 'easyblocks', 'easyconfigs']],
+    requires=[
+        'easybuild_framework(==%s)' % VERSION,
+        'easybuild_easyblocks(==%s)' % VERSION,
+        'easybuild_easyconfigs(==%s)' % VERSION,
+    ],
     # for setuptools/pip
-    install_requires=['easybuild-%s == %s' % (x, VERSION) for x in ['framework', 'easyblocks', 'easyconfigs']],
+    install_requires=[
+        'easybuild-framework == %s' % VERSION,
+        'easybuild-easyblocks == %s' % VERSION,
+        'easybuild-easyconfigs == %s' % VERSION,
+    ],
 )

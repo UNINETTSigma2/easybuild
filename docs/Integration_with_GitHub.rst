@@ -93,17 +93,17 @@ Installing a GitHub token (``--install-github-token``)
 
 .. note:: *requires*: GitHub username + ``keyring`` Python package
 
-A GitHub token is a string of 40 hexadecimal (lowercase) characters that is tied to your GitHub account,
+A GitHub token is a string of 40 characters that is tied to your GitHub account,
 allowing you to access the GitHub API authenticated.
 
 Using a GitHub token is beneficial with respect to rate limitations, and enables write permissions on GitHub
-(e.g., posting comments, creating gists, opening pull requests, etc.).
+(e.g. posting comments, creating gists, opening pull requests).
 
 To obtain a GitHub token:
 
 * visit https://github.com/settings/tokens/new and log in with your GitHub account
 * enter a token description, for example: "``EasyBuild``"
-* make sure (only) the ``gist`` and ``repo`` scopes are fully enabled
+* make sure (only) the ``gist`` and ``public_repo`` (in the ``repo`` section) scopes are fully enabled
 * click ``Generate token``
 * *copy-paste* the generated token
 
@@ -238,7 +238,7 @@ for pull requests based on an outdated branch in which easyconfigs are changed t
 as well.
 
 As such, the exact semantics of ``--from-pr`` depends on the state of the specified pull request, i.e. whether or not
-the pull request was merged already, whether the pull request is mergeable and stable (as indicated by Travis), etc.
+the pull request was merged already, whether the pull request is mergeable and stable (as indicated by GitHub Actions), etc.
 
 .. _github_from_pr_vs_develop_open_stable_prs:
 
@@ -279,7 +279,7 @@ For closed and unstable pull requests, only the branch corresponding to the pull
 which aligns with the semantics of ``--from-pr`` as it was before EasyBuild v2.9.0. In this case, the current
 ``develop`` branch is *not* taken into account.
 
-.. note:: A pull request is considered unstable when GitHub reports merge conflicts or when Travis reports
+.. note:: A pull request is considered unstable when GitHub reports merge conflicts or when GitHub Actions reports
           one or more failing tests.
 
 
@@ -351,6 +351,38 @@ in that same pull request for netCDF, WRF, ...::
     == temporary directory /tmp/eb-QhM_qc has been removed.
 
 Again, note that locally available easyconfigs that are required to resolve dependencies are being picked up as needed.
+
+
+.. _github_include_easyblocks_from_pr:
+
+Using easyblocks from pull requests (``--include-easyblocks-from-pr``)
+----------------------------------------------------
+
+*(supported since EasyBuild v4.2.0)*
+
+Via the ``--include-easyblocks-from-pr`` command line option, easyblocks that are added or
+modified by a particular pull request to the `easybuild-easyblocks GitHub repository
+<https://github.com/easybuilders/easybuild-easyblocks>`_ can be used (regardless of whether the pull request is merged
+or not).
+
+This can be useful to employ easyblocks that are not available yet in the active EasyBuild installation,
+or to test new contributions by combining ``--include-easyblocks-from-pr`` with ``--from-pr`` and ``--upload-test-report``
+(see :ref:`github_upload_test_report`).
+
+When ``--include-easyblocks-from-pr`` is used, EasyBuild will download all modified easyblocks to a temporary
+directory before processing them. Just like with ``--include-easyblocks`` (see :ref:`include_easyblocks`),
+the easyblocks that are included are preferred over the ones included in the EasyBuild installation.
+
+For example, to use the LAMMPS easyblock contributed via `easyblocks pull request #1964 
+<https://github.com/easybuilders/easybuild-easyblocks/pull/1964>`_ together with the LAMMPS v7Aug2019 easyconfigs contributed via 
+`easyconfigs pull request #9884 <https://github.com/easybuilders/easybuild-easyconfigs/pull/9884>`_::
+
+    $ eb --from-pr 9884 --include-easyblocks-from-pr 1964 --list-easyblocks=detailed
+    == temporary log file in case of crash /tmp/eb-Eq2zsJ/easybuild-1AaWf8.log
+    EasyBlock (easybuild.framework.easyblock)
+    ...
+    |   |   |-- EB_LAMMPS (easybuild.easyblocks.lammps @ /tmp/included-easyblocks-rD2HEQ/easybuild/easyblocks/lammps.py)
+    ...
 
 
 .. _github_upload_test_report:
@@ -605,7 +637,7 @@ has been created. EasyBuild does *not* make changes to an existing working copy 
 (cfr. :ref:`github_git_working_dirs_path`).
 
 .. note:: When modifying existing files via ``--new-pr``,
-          you *must* specify a (meaningful) commit message using `--pr-commit-msg`, see :ref:`github_controlling_pr_metadata`.
+          you *must* specify a (meaningful) commit message using ``--pr-commit-msg``, see :ref:`github_controlling_pr_metadata`.
 
 Example
 +++++++

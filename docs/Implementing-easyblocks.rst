@@ -35,7 +35,7 @@ Easyblocks can either be *generic* or *software-specific*.
 Generic easyblocks implement a 'standard' software build and installation procedure that is used by multiple different
 software packages.
 A commonly used example is the
-`ConfigureMake <https://github.com/easybuilders/easybuild-easyblocks/blob/master/easybuild/easyblocks/generic/configuremake.py>`_ 
+`ConfigureMake <https://github.com/easybuilders/easybuild-easyblocks/blob/main/easybuild/easyblocks/generic/configuremake.py>`_
 generic easyblock, which implements the standard ``configure`` - ``make`` - ``make install`` installation procedure used
 by most GNU software packages.
 
@@ -176,7 +176,7 @@ Generic easyblocks are located in the ``easybuid.easyblocks.generic`` namespace,
 live in the ``easybuild.easyblocks`` namespace directly. To keep things organised, the actual Python module file
 for software-specific easyblocks are kept in 'letter' subdirectories,
 rather than in one large '``easyblocks``' directory
-(see https://github.com/easybuilders/easybuild-easyblocks/blob/master/easybuild/easyblocks/).
+(see https://github.com/easybuilders/easybuild-easyblocks/blob/main/easybuild/easyblocks/).
 
 Note that you shouldn't concern yourself too much with getting the location of an easyblock right, as long as you
 use ``--include-easyblocks`` to make EasyBuild use additional or customised easyblocks
@@ -253,6 +253,44 @@ redefining it entirely, since we call out to the original ``configure_step`` met
 
 Specific aspects of easyblocks
 ------------------------------
+
+.. _implementing_easyblocks_default_parameters:
+
+Default easyconfig parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All of the parameters which are "set" in an easyconfig file (see :ref:`vsd_avail_easyconfig_params`)
+become key-value pairs in the ``self.cfg`` dictionary.  For instance, if the easyconfig file specifies
+
+.. code:: python
+
+  name = 'example'
+  version = '2.5.3'
+  versionsuffix = '-Python-3.7.4'
+
+then these three parameters are accessible within an easyblock via
+
+.. code:: python
+
+  longform = ''.join(self.cfg['name'],'/',self.cfg['version'],self.cfg['versionsuffix'])
+
+You can use this notation successfully in your easyblock.  A few of the most commonly used parameters can be referenced
+directly,
+
+* **self.name** = ``self.cfg['name']``
+* **self.version** = ``self.cfg['version']``
+* **self.toolchain** = ``self.cfg['toolchain']``
+* **self.all_dependencies**: combines ``builddependencies``, ``dependencies``, and ``toolchain``, in one dictionary
+
+So in your easyblock code, you may replace the above expression with
+
+.. code:: python
+
+  longform = ''.join(self.name,'/',self.version,self.cfg['versionsuffix'])
+
+The other easyconfig parameters, and any additional :ref:`custom parameters
+<implementing_easyblocks_custom_parameters>` which you define for your own easyblock, will not be automatically mapped.
+You will need to use ``self.cfg`` to access them in your code.
 
 
 .. _implementing_easyblocks_custom_parameters:

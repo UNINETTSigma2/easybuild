@@ -5,6 +5,21 @@ Changelog for EasyBuild documentation
 
 (for EasyBuild release notes, see :ref:`release_notes`)
 
+* **release 20210706.01** (`Jul  6th 2021`): update release notes for EasyBuild v4.4.1 (see :ref:`release_notes_eb441`)
+* **release 20210602.01** (`Jun  2nd 2021`): update release notes for EasyBuild v4.4.0 (see :ref:`release_notes_eb440`)
+* **release 20210409.01** (`Apr  9th 2021`): update release notes for EasyBuild v4.3.4 (see :ref:`release_notes_eb434`)
+* **release 20210223.01** (`Feb 23rd 2021`): update release notes for EasyBuild v4.3.3 (see :ref:`release_notes_eb433`)
+* **release 20201210.01** (`Dec 10th 2020`): update release notes for EasyBuild v4.3.2 (see :ref:`release_notes_eb432`)
+* **release 20201029.01** (`Oct 29th 2020`): update release notes for EasyBuild v4.3.1 (see :ref:`release_notes_eb431`)
+* **release 20200913.01** (`Sep 13th 2020`): update release notes for EasyBuild v4.3.0 (see :ref:`release_notes_eb430`)
+* **release 20200708.01** (`July 8th 2020`): update release notes for EasyBuild v4.2.2 (see :ref:`release_notes_eb422`)
+* **release 20200520.01** (`May 20th 2020`): update release notes for EasyBuild v4.2.1 (see :ref:`release_notes_eb421`)
+* **release 20200414.01** (`Apr 14th 2020`):
+
+  * document new EasyBuild locking mechanism (see :ref:`locks`)
+  * document support for creating index files (see :ref:`easyconfigs_index`)
+  * update release notes for EasyBuild v4.2.0 (see :ref:`release_notes_eb420`)
+* **release 20200316.01** (`Mar 16th 2020`): update release notes for EasyBuild v4.1.2 (see :ref:`release_notes_eb412`)
 * **release 20200116.01** (`Jan 16th 2020`): update release notes for EasyBuild v4.1.1 (see :ref:`release_notes_eb411`)
 * **release 20191204.01** (`Dec 4th 2019`): update release notes for EasyBuild v4.1.0 (see :ref:`release_notes_eb410`)
 * **release 20191015.01** (`Oct 15th 2019`): update release notes for EasyBuild v4.0.1 (see :ref:`release_notes_eb401`)

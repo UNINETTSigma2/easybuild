@@ -10,7 +10,7 @@
 Overview of generic easyblocks
 ==============================
 
-:ref:`BinariesTarball` - :ref:`Binary` - :ref:`BuildEnv` - :ref:`Bundle` - :ref:`CMakeMake` - :ref:`CMakeMakeCp` - :ref:`CMakeNinja` - :ref:`CMakePythonPackage` - :ref:`CmdCp` - :ref:`Conda` - :ref:`ConfigureMake` - :ref:`ConfigureMakePythonPackage` - :ref:`CrayToolchain` - :ref:`FortranPythonPackage` - :ref:`IntelBase` - :ref:`JAR` - :ref:`MakeCp` - :ref:`MesonNinja` - :ref:`ModuleRC` - :ref:`OCamlPackage` - :ref:`OctavePackage` - :ref:`PackedBinary` - :ref:`PerlModule` - :ref:`PythonBundle` - :ref:`PythonPackage` - :ref:`RPackage` - :ref:`Rpm` - :ref:`RubyGem` - :ref:`SCons` - :ref:`SystemCompiler` - :ref:`SystemMPI` - :ref:`Tarball` - :ref:`Toolchain` - :ref:`VSCPythonPackage` - :ref:`VersionIndependentPythonPackage` - :ref:`Waf`
+:ref:`BinariesTarball` - :ref:`Binary` - :ref:`BuildEnv` - :ref:`Bundle` - :ref:`CMakeMake` - :ref:`CMakeMakeCp` - :ref:`CMakeNinja` - :ref:`CMakePythonPackage` - :ref:`CmdCp` - :ref:`Conda` - :ref:`ConfigureMake` - :ref:`ConfigureMakePythonPackage` - :ref:`CrayToolchain` - :ref:`FortranPythonPackage` - :ref:`GoPackage` - :ref:`IntelBase` - :ref:`JAR` - :ref:`MakeCp` - :ref:`MesonNinja` - :ref:`ModuleRC` - :ref:`OCamlPackage` - :ref:`OctavePackage` - :ref:`PackedBinary` - :ref:`PerlModule` - :ref:`PythonBundle` - :ref:`PythonPackage` - :ref:`RPackage` - :ref:`Rpm` - :ref:`RubyGem` - :ref:`SCons` - :ref:`SystemCompiler` - :ref:`SystemMPI` - :ref:`Tarball` - :ref:`Toolchain` - :ref:`VSCPythonPackage` - :ref:`VersionIndependentPythonPackage` - :ref:`Waf`
 
 .. _BinariesTarball:
 
@@ -20,6 +20,16 @@ Overview of generic easyblocks
 (derives from :ref:`Tarball`)
 
 Support for installing a tarball of binaries
+
+Extra easyconfig parameters specific to ``BinariesTarball`` easyblock
+---------------------------------------------------------------------
+
+====================    =============================================================================================================================================================    =============
+easyconfig parameter    description                                                                                                                                                      default value
+====================    =============================================================================================================================================================    =============
+``install_type``        Defaults to extract tarball into clean directory. Options: 'merge' merges tarball to existing directory, 'subdir' extracts tarball into its own sub-directory    ``None``     
+``preinstall_cmd``      Command to execute before installation                                                                                                                           ``None``     
+====================    =============================================================================================================================================================    =============
 
 Customised steps in ``BinariesTarball`` easyblock
 -------------------------------------------------
@@ -173,13 +183,16 @@ easyconfig parameter        description                                         
 ``abs_path_compilers``      Specify compilers via absolute file path (not via command names)                                                                                                                                      ``False``         
 ``allow_system_boost``      Always allow CMake to pick up on Boost installed in OS (even if Boost is included as a dependency)                                                                                                    ``False``         
 ``build_cmd``               Build command to use                                                                                                                                                                                  ``"make"``        
-``build_type``              Build type for CMake, e.g. Release or Debug.Use None to not specify -DCMAKE_BUILD_TYPE                                                                                                                ``None``          
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                 ``""``            
+``build_shared_libs``       Build shared library (instead of static library)None can be used to add no flag (usually results in static library)                                                                                   ``None``          
+``build_type``              Build type for CMake, e.g. Release.Defaults to 'Release' or 'Debug' depending on toolchainopts[debug]                                                                                                 ``None``          
 ``configure_cmd``           Configure command to use                                                                                                                                                                              ``"cmake"``       
 ``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                 ``""``            
+``generator``               Build file generator to use. None to use CMakes default                                                                                                                                               ``None``          
 ``host_type``               Value to provide to --host option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``          
 ``install_cmd``             Build command to use                                                                                                                                                                                  ``"make install"``
 ``prefix_opt``              Prefix command line option for configure script ('--prefix=' if None)                                                                                                                                 ``None``          
-``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``False``         
+``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``True``          
 ``srcdir``                  Source directory location to provide to cmake command                                                                                                                                                 ``None``          
 ``tar_config_opts``         Override tar settings as determined by configure.                                                                                                                                                     ``False``         
 ========================    ==================================================================================================================================================================================================    ==================
@@ -246,14 +259,17 @@ easyconfig parameter        description                                         
 ``abs_path_compilers``      Specify compilers via absolute file path (not via command names)                                                                                                                                      ``False``         
 ``allow_system_boost``      Always allow CMake to pick up on Boost installed in OS (even if Boost is included as a dependency)                                                                                                    ``False``         
 ``build_cmd``               Build command to use                                                                                                                                                                                  ``"make"``        
-``build_type``              Build type for CMake, e.g. Release or Debug.Use None to not specify -DCMAKE_BUILD_TYPE                                                                                                                ``None``          
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                 ``""``            
+``build_shared_libs``       Build shared library (instead of static library)None can be used to add no flag (usually results in static library)                                                                                   ``None``          
+``build_type``              Build type for CMake, e.g. Release.Defaults to 'Release' or 'Debug' depending on toolchainopts[debug]                                                                                                 ``None``          
 ``configure_cmd``           Configure command to use                                                                                                                                                                              ``"cmake"``       
 ``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                 ``""``            
 ``files_to_copy``           List of files or dirs to copy                                                                                                                                                                         ``None``          
+``generator``               Build file generator to use. None to use CMakes default                                                                                                                                               ``None``          
 ``host_type``               Value to provide to --host option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``          
 ``install_cmd``             Build command to use                                                                                                                                                                                  ``"make install"``
 ``prefix_opt``              Prefix command line option for configure script ('--prefix=' if None)                                                                                                                                 ``None``          
-``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``False``         
+``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``True``          
 ``srcdir``                  Source directory location to provide to cmake command                                                                                                                                                 ``None``          
 ``tar_config_opts``         Override tar settings as determined by configure.                                                                                                                                                     ``False``         
 ``with_configure``          Run configure script before building                                                                                                                                                                  ``False``         
@@ -282,13 +298,16 @@ easyconfig parameter        description                                         
 ``abs_path_compilers``      Specify compilers via absolute file path (not via command names)                                                                                                                                      ``False``         
 ``allow_system_boost``      Always allow CMake to pick up on Boost installed in OS (even if Boost is included as a dependency)                                                                                                    ``False``         
 ``build_cmd``               Build command to use                                                                                                                                                                                  ``"make"``        
-``build_type``              Build type for CMake, e.g. Release or Debug.Use None to not specify -DCMAKE_BUILD_TYPE                                                                                                                ``None``          
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                 ``""``            
+``build_shared_libs``       Build shared library (instead of static library)None can be used to add no flag (usually results in static library)                                                                                   ``None``          
+``build_type``              Build type for CMake, e.g. Release.Defaults to 'Release' or 'Debug' depending on toolchainopts[debug]                                                                                                 ``None``          
 ``configure_cmd``           Configure command to use                                                                                                                                                                              ``"cmake"``       
 ``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                 ``""``            
+``generator``               Build file generator to use. None to use CMakes default                                                                                                                                               ``"Ninja"``       
 ``host_type``               Value to provide to --host option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``          
 ``install_cmd``             Build command to use                                                                                                                                                                                  ``"make install"``
 ``prefix_opt``              Prefix command line option for configure script ('--prefix=' if None)                                                                                                                                 ``None``          
-``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``False``         
+``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``True``          
 ``srcdir``                  Source directory location to provide to cmake command                                                                                                                                                 ``None``          
 ``tar_config_opts``         Override tar settings as determined by configure.                                                                                                                                                     ``False``         
 ========================    ==================================================================================================================================================================================================    ==================
@@ -311,7 +330,7 @@ Build a Python package and module with cmake.
     Some packages use cmake to first build and install C Python packages
     and then put the Python package in lib/pythonX.Y/site-packages.
 
-    We install this in a seperate location and generate a module file 
+    We install this in a seperate location and generate a module file
     which sets the PYTHONPATH.
 
     We use the default CMake implementation, and use make_module_extra from PythonPackage.
@@ -319,39 +338,47 @@ Build a Python package and module with cmake.
 Extra easyconfig parameters specific to ``CMakePythonPackage`` easyblock
 ------------------------------------------------------------------------
 
-========================    ==================================================================================================================================================================================================    ==================
-easyconfig parameter        description                                                                                                                                                                                           default value     
-========================    ==================================================================================================================================================================================================    ==================
-``abs_path_compilers``      Specify compilers via absolute file path (not via command names)                                                                                                                                      ``False``         
-``allow_system_boost``      Always allow CMake to pick up on Boost installed in OS (even if Boost is included as a dependency)                                                                                                    ``False``         
-``build_cmd``               Build command to use                                                                                                                                                                                  ``"make"``        
-``build_type``              Build type for CMake, e.g. Release or Debug.Use None to not specify -DCMAKE_BUILD_TYPE                                                                                                                ``None``          
-``buildcmd``                Command to pass to setup.py to build the extension                                                                                                                                                    ``"build"``       
-``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                                                                   ``None``          
-``configure_cmd``           Configure command to use                                                                                                                                                                              ``"cmake"``       
-``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                 ``""``            
-``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                                                          ``None``          
-``host_type``               Value to provide to --host option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``          
-``install_cmd``             Build command to use                                                                                                                                                                                  ``"make install"``
-``install_target``          Option to pass to setup.py                                                                                                                                                                            ``"install"``     
-``options``                 Dictionary with extension options.                                                                                                                                                                    ``{}``            
-``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                                                                     ``True``          
-``prefix_opt``              Prefix command line option for configure script ('--prefix=' if None)                                                                                                                                 ``None``          
-``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                                                                ``None``          
-``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                                                                ``None``          
-``runtest``                 Run unit tests.                                                                                                                                                                                       ``True``          
-``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed                                                                                                                                  ``False``         
-``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``False``         
-``srcdir``                  Source directory location to provide to cmake command                                                                                                                                                 ``None``          
-``tar_config_opts``         Override tar settings as determined by configure.                                                                                                                                                     ``False``         
-``unpack_sources``          Unpack sources prior to build/install                                                                                                                                                                 ``True``          
-``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                                                             ``False``         
-``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                               ``None``          
-``use_pip_editable``        Install using 'pip install --editable'                                                                                                                                                                ``False``         
-``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                  ``False``         
-``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                                                          ``False``         
-``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                                                                  ``False``         
-========================    ==================================================================================================================================================================================================    ==================
+========================    ==================================================================================================================================================================================================    =======================================================================
+easyconfig parameter        description                                                                                                                                                                                           default value                                                          
+========================    ==================================================================================================================================================================================================    =======================================================================
+``abs_path_compilers``      Specify compilers via absolute file path (not via command names)                                                                                                                                      ``False``                                                              
+``allow_system_boost``      Always allow CMake to pick up on Boost installed in OS (even if Boost is included as a dependency)                                                                                                    ``False``                                                              
+``build_cmd``               Build command to use                                                                                                                                                                                  ``"make"``                                                             
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                 ``""``                                                                 
+``build_shared_libs``       Build shared library (instead of static library)None can be used to add no flag (usually results in static library)                                                                                   ``None``                                                               
+``build_type``              Build type for CMake, e.g. Release.Defaults to 'Release' or 'Debug' depending on toolchainopts[debug]                                                                                                 ``None``                                                               
+``buildcmd``                Command to pass to setup.py to build the extension                                                                                                                                                    ``"build"``                                                            
+``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                                                                   ``None``                                                               
+``configure_cmd``           Configure command to use                                                                                                                                                                              ``"cmake"``                                                            
+``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                 ``""``                                                                 
+``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                                                          ``None``                                                               
+``generator``               Build file generator to use. None to use CMakes default                                                                                                                                               ``None``                                                               
+``host_type``               Value to provide to --host option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``                                                               
+``install_cmd``             Build command to use                                                                                                                                                                                  ``"make install"``                                                     
+``install_target``          Option to pass to setup.py                                                                                                                                                                            ``"install"``                                                          
+``options``                 Dictionary with extension options.                                                                                                                                                                    ``{}``                                                                 
+``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                                                                     ``True``                                                               
+``pip_no_index``            Pass --no-index to pip to disable connecting to PyPi entirely which also disables the pip version check. Enabled by default when pip_ignore_installed=True                                            ``None``                                                               
+``prefix_opt``              Prefix command line option for configure script ('--prefix=' if None)                                                                                                                                 ``None``                                                               
+``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                                                                ``None``                                                               
+``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                                                                ``None``                                                               
+``runtest``                 Run unit tests.                                                                                                                                                                                       ``True``                                                               
+``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed and check for any package with an invalid (0.0.0) version.                                                                       ``False``                                                              
+``separate_build_dir``      Perform build in a separate directory                                                                                                                                                                 ``True``                                                               
+``source_urls``             List of URLs for source files                                                                                                                                                                         ``['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s']``
+``srcdir``                  Source directory location to provide to cmake command                                                                                                                                                 ``None``                                                               
+``tar_config_opts``         Override tar settings as determined by configure.                                                                                                                                                     ``False``                                                              
+``unpack_sources``          Unpack sources prior to build/install. Defaults to 'True' except for whl files                                                                                                                        ``None``                                                               
+``unversioned_packages``    List of packages that don't have a version at all, i.e. show 0.0.0                                                                                                                                    ``[]``                                                                 
+``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                                                             ``False``                                                              
+``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                               ``None``                                                               
+``use_pip_editable``        Install using 'pip install --editable'                                                                                                                                                                ``False``                                                              
+``use_pip_extras``          String with comma-separated list of 'extras' to install via pip                                                                                                                                       ``None``                                                               
+``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                  ``False``                                                              
+``use_pip_requirement``     Install using 'pip install --requirement'. The sources is expected to be the requirements file.                                                                                                       ``False``                                                              
+``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                                                          ``False``                                                              
+``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                                                                  ``False``                                                              
+========================    ==================================================================================================================================================================================================    =======================================================================
 
 Customised steps in ``CMakePythonPackage`` easyblock
 ----------------------------------------------------
@@ -376,6 +403,7 @@ Extra easyconfig parameters specific to ``CmdCp`` easyblock
 easyconfig parameter        description                                                                                                                                                                                            default value                                       
 ========================    ===================================================================================================================================================================================================    ====================================================
 ``build_cmd``               Build command to use                                                                                                                                                                                   ``"make"``                                          
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                  ``""``                                              
 ``build_type``              Value to provide to --build option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``                                            
 ``cmds_map``                List of regex/template command (with 'source'/'target' fields) tuples                                                                                                                                  ``[('.*', '$CC $CFLAGS %(source)s -o %(target)s')]``
 ``configure_cmd``           Configure command to use                                                                                                                                                                               ``"./configure"``                                   
@@ -439,6 +467,7 @@ Extra easyconfig parameters specific to ``ConfigureMake`` easyblock
 easyconfig parameter        description                                                                                                                                                                                            default value     
 ========================    ===================================================================================================================================================================================================    ==================
 ``build_cmd``               Build command to use                                                                                                                                                                                   ``"make"``        
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                  ``""``            
 ``build_type``              Value to provide to --build option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``          
 ``configure_cmd``           Configure command to use                                                                                                                                                                               ``"./configure"`` 
 ``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                  ``""``            
@@ -512,35 +541,41 @@ Build a Python package and module with 'python configure/make/make install'.
 Extra easyconfig parameters specific to ``ConfigureMakePythonPackage`` easyblock
 --------------------------------------------------------------------------------
 
-========================    ===================================================================================================================================================================================================    ==================
-easyconfig parameter        description                                                                                                                                                                                            default value     
-========================    ===================================================================================================================================================================================================    ==================
-``build_cmd``               Build command to use                                                                                                                                                                                   ``"make"``        
-``build_type``              Value to provide to --build option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``          
-``buildcmd``                Command to pass to setup.py to build the extension                                                                                                                                                     ``"build"``       
-``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                                                                    ``None``          
-``configure_cmd``           Configure command to use                                                                                                                                                                               ``"./configure"`` 
-``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                  ``""``            
-``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                                                           ``None``          
-``host_type``               Value to provide to --host option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)     ``None``          
-``install_cmd``             Build command to use                                                                                                                                                                                   ``"make install"``
-``install_target``          Option to pass to setup.py                                                                                                                                                                             ``"install"``     
-``options``                 Dictionary with extension options.                                                                                                                                                                     ``{}``            
-``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                                                                      ``True``          
-``prefix_opt``              Prefix command line option for configure script ('--prefix=' if None)                                                                                                                                  ``None``          
-``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                                                                 ``None``          
-``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                                                                 ``None``          
-``runtest``                 Run unit tests.                                                                                                                                                                                        ``True``          
-``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed                                                                                                                                   ``False``         
-``tar_config_opts``         Override tar settings as determined by configure.                                                                                                                                                      ``False``         
-``unpack_sources``          Unpack sources prior to build/install                                                                                                                                                                  ``True``          
-``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                                                              ``False``         
-``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                                ``None``          
-``use_pip_editable``        Install using 'pip install --editable'                                                                                                                                                                 ``False``         
-``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                   ``False``         
-``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                                                           ``False``         
-``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                                                                   ``False``         
-========================    ===================================================================================================================================================================================================    ==================
+========================    ===================================================================================================================================================================================================    =======================================================================
+easyconfig parameter        description                                                                                                                                                                                            default value                                                          
+========================    ===================================================================================================================================================================================================    =======================================================================
+``build_cmd``               Build command to use                                                                                                                                                                                   ``"make"``                                                             
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                  ``""``                                                                 
+``build_type``              Value to provide to --build option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``                                                               
+``buildcmd``                Command to pass to setup.py to build the extension                                                                                                                                                     ``"build"``                                                            
+``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                                                                    ``None``                                                               
+``configure_cmd``           Configure command to use                                                                                                                                                                               ``"./configure"``                                                      
+``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                  ``""``                                                                 
+``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                                                           ``None``                                                               
+``host_type``               Value to provide to --host option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)     ``None``                                                               
+``install_cmd``             Build command to use                                                                                                                                                                                   ``"make install"``                                                     
+``install_target``          Option to pass to setup.py                                                                                                                                                                             ``"install"``                                                          
+``options``                 Dictionary with extension options.                                                                                                                                                                     ``{}``                                                                 
+``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                                                                      ``True``                                                               
+``pip_no_index``            Pass --no-index to pip to disable connecting to PyPi entirely which also disables the pip version check. Enabled by default when pip_ignore_installed=True                                             ``None``                                                               
+``prefix_opt``              Prefix command line option for configure script ('--prefix=' if None)                                                                                                                                  ``None``                                                               
+``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                                                                 ``None``                                                               
+``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                                                                 ``None``                                                               
+``runtest``                 Run unit tests.                                                                                                                                                                                        ``True``                                                               
+``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed and check for any package with an invalid (0.0.0) version.                                                                        ``False``                                                              
+``source_urls``             List of URLs for source files                                                                                                                                                                          ``['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s']``
+``tar_config_opts``         Override tar settings as determined by configure.                                                                                                                                                      ``False``                                                              
+``unpack_sources``          Unpack sources prior to build/install. Defaults to 'True' except for whl files                                                                                                                         ``None``                                                               
+``unversioned_packages``    List of packages that don't have a version at all, i.e. show 0.0.0                                                                                                                                     ``[]``                                                                 
+``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                                                              ``False``                                                              
+``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                                ``None``                                                               
+``use_pip_editable``        Install using 'pip install --editable'                                                                                                                                                                 ``False``                                                              
+``use_pip_extras``          String with comma-separated list of 'extras' to install via pip                                                                                                                                        ``None``                                                               
+``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                                                   ``False``                                                              
+``use_pip_requirement``     Install using 'pip install --requirement'. The sources is expected to be the requirements file.                                                                                                        ``False``                                                              
+``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                                                           ``False``                                                              
+``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                                                                   ``False``                                                              
+========================    ===================================================================================================================================================================================================    =======================================================================
 
 Customised steps in ``ConfigureMakePythonPackage`` easyblock
 ------------------------------------------------------------
@@ -618,33 +653,63 @@ Extends PythonPackage to add a Fortran compiler to the make call
 Extra easyconfig parameters specific to ``FortranPythonPackage`` easyblock
 --------------------------------------------------------------------------
 
-========================    =========================================================================================================    =============
-easyconfig parameter        description                                                                                                  default value
-========================    =========================================================================================================    =============
-``buildcmd``                Command to pass to setup.py to build the extension                                                           ``"build"``  
-``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                          ``None``     
-``download_dep_fail``       Fail if downloaded dependencies are detected                                                                 ``None``     
-``install_target``          Option to pass to setup.py                                                                                   ``"install"``
-``options``                 Dictionary with extension options.                                                                           ``{}``       
-``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                            ``True``     
-``req_py_majver``           Required major Python version (only relevant when using system Python)                                       ``None``     
-``req_py_minver``           Required minor Python version (only relevant when using system Python)                                       ``None``     
-``runtest``                 Run unit tests.                                                                                              ``True``     
-``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed                                         ``False``    
-``unpack_sources``          Unpack sources prior to build/install                                                                        ``True``     
-``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)    ``False``    
-``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                      ``None``     
-``use_pip_editable``        Install using 'pip install --editable'                                                                       ``False``    
-``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                         ``False``    
-``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                 ``False``    
-``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                         ``False``    
-========================    =========================================================================================================    =============
+========================    ==========================================================================================================================================================    =======================================================================
+easyconfig parameter        description                                                                                                                                                   default value                                                          
+========================    ==========================================================================================================================================================    =======================================================================
+``buildcmd``                Command to pass to setup.py to build the extension                                                                                                            ``"build"``                                                            
+``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                           ``None``                                                               
+``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                  ``None``                                                               
+``install_target``          Option to pass to setup.py                                                                                                                                    ``"install"``                                                          
+``options``                 Dictionary with extension options.                                                                                                                            ``{}``                                                                 
+``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                             ``True``                                                               
+``pip_no_index``            Pass --no-index to pip to disable connecting to PyPi entirely which also disables the pip version check. Enabled by default when pip_ignore_installed=True    ``None``                                                               
+``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``runtest``                 Run unit tests.                                                                                                                                               ``True``                                                               
+``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed and check for any package with an invalid (0.0.0) version.                               ``False``                                                              
+``source_urls``             List of URLs for source files                                                                                                                                 ``['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s']``
+``unpack_sources``          Unpack sources prior to build/install. Defaults to 'True' except for whl files                                                                                ``None``                                                               
+``unversioned_packages``    List of packages that don't have a version at all, i.e. show 0.0.0                                                                                            ``[]``                                                                 
+``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                     ``False``                                                              
+``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                       ``None``                                                               
+``use_pip_editable``        Install using 'pip install --editable'                                                                                                                        ``False``                                                              
+``use_pip_extras``          String with comma-separated list of 'extras' to install via pip                                                                                               ``None``                                                               
+``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                          ``False``                                                              
+``use_pip_requirement``     Install using 'pip install --requirement'. The sources is expected to be the requirements file.                                                               ``False``                                                              
+``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                  ``False``                                                              
+``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                          ``False``                                                              
+========================    ==========================================================================================================================================================    =======================================================================
 
 Customised steps in ``FortranPythonPackage`` easyblock
 ------------------------------------------------------
 * ``build_step`` - Customize the build step by adding compiler-specific flags to the build command.
 * ``configure_step`` - Customize the build step by adding compiler-specific flags to the build command.
 * ``install_step`` - Customize the build step by adding compiler-specific flags to the build command.
+
+.. _GoPackage:
+
+``GoPackage``
+=============
+
+(derives from EasyBlock)
+
+Builds and installs a Go package, and provides a dedicated module file.
+
+Extra easyconfig parameters specific to ``GoPackage`` easyblock
+---------------------------------------------------------------
+
+====================    =====================================================================    =============
+easyconfig parameter    description                                                              default value
+====================    =====================================================================    =============
+``forced_deps``         Force specific version of Go package, when building non-native module    ``None``     
+``modulename``          Module name of the Go package, when building non-native module           ``None``     
+====================    =====================================================================    =============
+
+Customised steps in ``GoPackage`` easyblock
+-------------------------------------------
+* ``build_step`` - If Go package is not native go module, lets try to make the module.
+* ``configure_step`` - Configure Go package build/install.
+* ``install_step`` - Install Go package to a custom path
 
 .. _IntelBase:
 
@@ -675,11 +740,7 @@ Customised steps in ``IntelBase`` easyblock
 -------------------------------------------
 * ``build_step`` - Binary installation files, so no building.
 * ``configure_step`` - Configure: handle license file and clean home dir.
-* ``install_step`` - Actual installation
-
-        - create silent cfg file
-        - set environment parameters
-        - execute command
+* ``install_step`` - Install Intel software
 
 .. _JAR:
 
@@ -718,6 +779,7 @@ Extra easyconfig parameters specific to ``MakeCp`` easyblock
 easyconfig parameter        description                                                                                                                                                                                            default value     
 ========================    ===================================================================================================================================================================================================    ==================
 ``build_cmd``               Build command to use                                                                                                                                                                                   ``"make"``        
+``build_cmd_targets``       Target name (string) or list of target names to build                                                                                                                                                  ``""``            
 ``build_type``              Value to provide to --build option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``          
 ``configure_cmd``           Configure command to use                                                                                                                                                                               ``"./configure"`` 
 ``configure_cmd_prefix``    Prefix to be glued before ./configure                                                                                                                                                                  ``""``            
@@ -882,32 +944,37 @@ Bundle of modules: only generate module files, nothing to build/install
 Extra easyconfig parameters specific to ``PythonBundle`` easyblock
 ------------------------------------------------------------------
 
-===========================    =========================================================================================================    =============
-easyconfig parameter           description                                                                                                  default value
-===========================    =========================================================================================================    =============
-``altroot``                    Software name of dependency to use to define $EBROOT for this bundle                                         ``None``     
-``altversion``                 Software name of dependency to use to define $EBVERSION for this bundle                                      ``None``     
-``buildcmd``                   Command to pass to setup.py to build the extension                                                           ``"build"``  
-``check_ldshared``             Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                          ``None``     
-``components``                 List of components to install: tuples w/ name, version and easyblock to use                                  ``()``       
-``default_component_specs``    Default specs to use for every component                                                                     ``{}``       
-``default_easyblock``          Default easyblock to use for components                                                                      ``None``     
-``download_dep_fail``          Fail if downloaded dependencies are detected                                                                 ``None``     
-``install_target``             Option to pass to setup.py                                                                                   ``"install"``
-``options``                    Dictionary with extension options.                                                                           ``{}``       
-``pip_ignore_installed``       Let pip ignore installed Python packages (i.e. don't remove them)                                            ``True``     
-``req_py_majver``              Required major Python version (only relevant when using system Python)                                       ``None``     
-``req_py_minver``              Required minor Python version (only relevant when using system Python)                                       ``None``     
-``runtest``                    Run unit tests.                                                                                              ``True``     
-``sanity_pip_check``           Run 'pip check' to ensure all required Python packages are installed                                         ``False``    
-``unpack_sources``             Unpack sources prior to build/install                                                                        ``True``     
-``use_easy_install``           Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)    ``False``    
-``use_pip``                    Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                      ``None``     
-``use_pip_editable``           Install using 'pip install --editable'                                                                       ``False``    
-``use_pip_for_deps``           Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                         ``False``    
-``use_setup_py_develop``       Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                 ``False``    
-``zipped_egg``                 Install as a zipped eggs (requires use_easy_install)                                                         ``False``    
-===========================    =========================================================================================================    =============
+===========================    ==========================================================================================================================================================    =======================================================================
+easyconfig parameter           description                                                                                                                                                   default value                                                          
+===========================    ==========================================================================================================================================================    =======================================================================
+``altroot``                    Software name of dependency to use to define $EBROOT for this bundle                                                                                          ``None``                                                               
+``altversion``                 Software name of dependency to use to define $EBVERSION for this bundle                                                                                       ``None``                                                               
+``buildcmd``                   Command to pass to setup.py to build the extension                                                                                                            ``"build"``                                                            
+``check_ldshared``             Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                           ``None``                                                               
+``components``                 List of components to install: tuples w/ name, version and easyblock to use                                                                                   ``()``                                                                 
+``default_component_specs``    Default specs to use for every component                                                                                                                      ``{}``                                                                 
+``default_easyblock``          Default easyblock to use for components                                                                                                                       ``None``                                                               
+``download_dep_fail``          Fail if downloaded dependencies are detected                                                                                                                  ``None``                                                               
+``install_target``             Option to pass to setup.py                                                                                                                                    ``"install"``                                                          
+``options``                    Dictionary with extension options.                                                                                                                            ``{}``                                                                 
+``pip_ignore_installed``       Let pip ignore installed Python packages (i.e. don't remove them)                                                                                             ``True``                                                               
+``pip_no_index``               Pass --no-index to pip to disable connecting to PyPi entirely which also disables the pip version check. Enabled by default when pip_ignore_installed=True    ``None``                                                               
+``req_py_majver``              Required major Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``req_py_minver``              Required minor Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``runtest``                    Run unit tests.                                                                                                                                               ``True``                                                               
+``sanity_pip_check``           Run 'pip check' to ensure all required Python packages are installed and check for any package with an invalid (0.0.0) version.                               ``False``                                                              
+``source_urls``                List of URLs for source files                                                                                                                                 ``['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s']``
+``unpack_sources``             Unpack sources prior to build/install. Defaults to 'True' except for whl files                                                                                ``None``                                                               
+``unversioned_packages``       List of packages that don't have a version at all, i.e. show 0.0.0                                                                                            ``[]``                                                                 
+``use_easy_install``           Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                     ``False``                                                              
+``use_pip``                    Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                       ``None``                                                               
+``use_pip_editable``           Install using 'pip install --editable'                                                                                                                        ``False``                                                              
+``use_pip_extras``             String with comma-separated list of 'extras' to install via pip                                                                                               ``None``                                                               
+``use_pip_for_deps``           Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                          ``False``                                                              
+``use_pip_requirement``        Install using 'pip install --requirement'. The sources is expected to be the requirements file.                                                               ``False``                                                              
+``use_setup_py_develop``       Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                  ``False``                                                              
+``zipped_egg``                 Install as a zipped eggs (requires use_easy_install)                                                                                                          ``False``                                                              
+===========================    ==========================================================================================================================================================    =======================================================================
 
 .. _PythonPackage:
 
@@ -921,27 +988,32 @@ Builds and installs a Python package, and provides a dedicated module file.
 Extra easyconfig parameters specific to ``PythonPackage`` easyblock
 -------------------------------------------------------------------
 
-========================    =========================================================================================================    =============
-easyconfig parameter        description                                                                                                  default value
-========================    =========================================================================================================    =============
-``buildcmd``                Command to pass to setup.py to build the extension                                                           ``"build"``  
-``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                          ``None``     
-``download_dep_fail``       Fail if downloaded dependencies are detected                                                                 ``None``     
-``install_target``          Option to pass to setup.py                                                                                   ``"install"``
-``options``                 Dictionary with extension options.                                                                           ``{}``       
-``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                            ``True``     
-``req_py_majver``           Required major Python version (only relevant when using system Python)                                       ``None``     
-``req_py_minver``           Required minor Python version (only relevant when using system Python)                                       ``None``     
-``runtest``                 Run unit tests.                                                                                              ``True``     
-``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed                                         ``False``    
-``unpack_sources``          Unpack sources prior to build/install                                                                        ``True``     
-``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)    ``False``    
-``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                      ``None``     
-``use_pip_editable``        Install using 'pip install --editable'                                                                       ``False``    
-``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                         ``False``    
-``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                 ``False``    
-``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                         ``False``    
-========================    =========================================================================================================    =============
+========================    ==========================================================================================================================================================    =======================================================================
+easyconfig parameter        description                                                                                                                                                   default value                                                          
+========================    ==========================================================================================================================================================    =======================================================================
+``buildcmd``                Command to pass to setup.py to build the extension                                                                                                            ``"build"``                                                            
+``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                           ``None``                                                               
+``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                  ``None``                                                               
+``install_target``          Option to pass to setup.py                                                                                                                                    ``"install"``                                                          
+``options``                 Dictionary with extension options.                                                                                                                            ``{}``                                                                 
+``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                             ``True``                                                               
+``pip_no_index``            Pass --no-index to pip to disable connecting to PyPi entirely which also disables the pip version check. Enabled by default when pip_ignore_installed=True    ``None``                                                               
+``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``runtest``                 Run unit tests.                                                                                                                                               ``True``                                                               
+``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed and check for any package with an invalid (0.0.0) version.                               ``False``                                                              
+``source_urls``             List of URLs for source files                                                                                                                                 ``['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s']``
+``unpack_sources``          Unpack sources prior to build/install. Defaults to 'True' except for whl files                                                                                ``None``                                                               
+``unversioned_packages``    List of packages that don't have a version at all, i.e. show 0.0.0                                                                                            ``[]``                                                                 
+``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                     ``False``                                                              
+``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                       ``None``                                                               
+``use_pip_editable``        Install using 'pip install --editable'                                                                                                                        ``False``                                                              
+``use_pip_extras``          String with comma-separated list of 'extras' to install via pip                                                                                               ``None``                                                               
+``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                          ``False``                                                              
+``use_pip_requirement``     Install using 'pip install --requirement'. The sources is expected to be the requirements file.                                                               ``False``                                                              
+``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                  ``False``                                                              
+``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                          ``False``                                                              
+========================    ==========================================================================================================================================================    =======================================================================
 
 Customised steps in ``PythonPackage`` easyblock
 -----------------------------------------------
@@ -1019,11 +1091,12 @@ Builds and installs Ruby Gems.
 Extra easyconfig parameters specific to ``RubyGem`` easyblock
 -------------------------------------------------------------
 
-====================    ==================================    =============
-easyconfig parameter    description                           default value
-====================    ==================================    =============
-``options``             Dictionary with extension options.    ``{}``       
-====================    ==================================    =============
+====================    ====================================    =============
+easyconfig parameter    description                             default value
+====================    ====================================    =============
+``gem_file``            Path to gem file in unpacked sources    ``None``     
+``options``             Dictionary with extension options.      ``{}``       
+====================    ====================================    =============
 
 Customised steps in ``RubyGem`` easyblock
 -----------------------------------------
@@ -1078,6 +1151,7 @@ easyconfig parameter              description                                   
 ``altroot``                       Software name of dependency to use to define $EBROOT for this bundle                                                                                                                                   ``None``            
 ``altversion``                    Software name of dependency to use to define $EBVERSION for this bundle                                                                                                                                ``None``            
 ``build_cmd``                     Build command to use                                                                                                                                                                                   ``"make"``          
+``build_cmd_targets``             Target name (string) or list of target names to build                                                                                                                                                  ``""``              
 ``build_type``                    Value to provide to --build option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``            
 ``clooguseisl``                   Use ISL with CLooG or not                                                                                                                                                                              ``False``           
 ``components``                    List of components to install: tuples w/ name, version and easyblock to use                                                                                                                            ``()``              
@@ -1106,6 +1180,7 @@ easyconfig parameter              description                                   
 ``withisl``                       Build GCC with ISL support                                                                                                                                                                             ``False``           
 ``withlibiberty``                 Enable installing of libiberty                                                                                                                                                                         ``False``           
 ``withlto``                       Enable LTO support                                                                                                                                                                                     ``True``            
+``withnvptx``                     Build GCC with NVPTX offload support                                                                                                                                                                   ``False``           
 ``withppl``                       Build GCC with PPL support                                                                                                                                                                             ``False``           
 ==============================    ===================================================================================================================================================================================================    ====================
 
@@ -1132,6 +1207,7 @@ easyconfig parameter                 description                                
 ``altroot``                          Software name of dependency to use to define $EBROOT for this bundle                                                                                                                                   ``None``            
 ``altversion``                       Software name of dependency to use to define $EBVERSION for this bundle                                                                                                                                ``None``            
 ``build_cmd``                        Build command to use                                                                                                                                                                                   ``"make"``          
+``build_cmd_targets``                Target name (string) or list of target names to build                                                                                                                                                  ``""``              
 ``build_type``                       Value to provide to --build option of configure script, e.g., x86_64-pc-linux-gnu (determined by config.guess shipped with EasyBuild if None, False implies to leave it up to the configure script)    ``None``            
 ``components``                       List of components to install: tuples w/ name, version and easyblock to use                                                                                                                            ``()``              
 ``configure_cmd``                    Configure command to use                                                                                                                                                                               ``"./configure"``   
@@ -1166,6 +1242,16 @@ easyconfig parameter                 description                                
 
 Precompiled software supplied as a tarball:
     - will unpack binary and copy it to the install dir
+
+Extra easyconfig parameters specific to ``Tarball`` easyblock
+-------------------------------------------------------------
+
+====================    =============================================================================================================================================================    =============
+easyconfig parameter    description                                                                                                                                                      default value
+====================    =============================================================================================================================================================    =============
+``install_type``        Defaults to extract tarball into clean directory. Options: 'merge' merges tarball to existing directory, 'subdir' extracts tarball into its own sub-directory    ``None``     
+``preinstall_cmd``      Command to execute before installation                                                                                                                           ``None``     
+====================    =============================================================================================================================================================    =============
 
 Customised steps in ``Tarball`` easyblock
 -----------------------------------------
@@ -1208,27 +1294,32 @@ Support for install VSC Python packages.
 Extra easyconfig parameters specific to ``VSCPythonPackage`` easyblock
 ----------------------------------------------------------------------
 
-========================    =========================================================================================================    =============
-easyconfig parameter        description                                                                                                  default value
-========================    =========================================================================================================    =============
-``buildcmd``                Command to pass to setup.py to build the extension                                                           ``"build"``  
-``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                          ``None``     
-``download_dep_fail``       Fail if downloaded dependencies are detected                                                                 ``None``     
-``install_target``          Option to pass to setup.py                                                                                   ``"install"``
-``options``                 Dictionary with extension options.                                                                           ``{}``       
-``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                            ``True``     
-``req_py_majver``           Required major Python version (only relevant when using system Python)                                       ``None``     
-``req_py_minver``           Required minor Python version (only relevant when using system Python)                                       ``None``     
-``runtest``                 Run unit tests.                                                                                              ``True``     
-``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed                                         ``False``    
-``unpack_sources``          Unpack sources prior to build/install                                                                        ``True``     
-``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)    ``False``    
-``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                      ``None``     
-``use_pip_editable``        Install using 'pip install --editable'                                                                       ``False``    
-``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                         ``False``    
-``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                 ``False``    
-``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                         ``False``    
-========================    =========================================================================================================    =============
+========================    ==========================================================================================================================================================    =======================================================================
+easyconfig parameter        description                                                                                                                                                   default value                                                          
+========================    ==========================================================================================================================================================    =======================================================================
+``buildcmd``                Command to pass to setup.py to build the extension                                                                                                            ``"build"``                                                            
+``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                           ``None``                                                               
+``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                  ``None``                                                               
+``install_target``          Option to pass to setup.py                                                                                                                                    ``"install"``                                                          
+``options``                 Dictionary with extension options.                                                                                                                            ``{}``                                                                 
+``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                             ``True``                                                               
+``pip_no_index``            Pass --no-index to pip to disable connecting to PyPi entirely which also disables the pip version check. Enabled by default when pip_ignore_installed=True    ``None``                                                               
+``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``runtest``                 Run unit tests.                                                                                                                                               ``True``                                                               
+``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed and check for any package with an invalid (0.0.0) version.                               ``False``                                                              
+``source_urls``             List of URLs for source files                                                                                                                                 ``['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s']``
+``unpack_sources``          Unpack sources prior to build/install. Defaults to 'True' except for whl files                                                                                ``None``                                                               
+``unversioned_packages``    List of packages that don't have a version at all, i.e. show 0.0.0                                                                                            ``[]``                                                                 
+``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                     ``False``                                                              
+``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                       ``None``                                                               
+``use_pip_editable``        Install using 'pip install --editable'                                                                                                                        ``False``                                                              
+``use_pip_extras``          String with comma-separated list of 'extras' to install via pip                                                                                               ``None``                                                               
+``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                          ``False``                                                              
+``use_pip_requirement``     Install using 'pip install --requirement'. The sources is expected to be the requirements file.                                                               ``False``                                                              
+``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                  ``False``                                                              
+``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                          ``False``                                                              
+========================    ==========================================================================================================================================================    =======================================================================
 
 .. _VersionIndependentPythonPackage:
 
@@ -1242,27 +1333,32 @@ Support for building/installing python packages without requiring a specific pyt
 Extra easyconfig parameters specific to ``VersionIndependentPythonPackage`` easyblock
 -------------------------------------------------------------------------------------
 
-========================    =========================================================================================================    =============
-easyconfig parameter        description                                                                                                  default value
-========================    =========================================================================================================    =============
-``buildcmd``                Command to pass to setup.py to build the extension                                                           ``"build"``  
-``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                          ``None``     
-``download_dep_fail``       Fail if downloaded dependencies are detected                                                                 ``None``     
-``install_target``          Option to pass to setup.py                                                                                   ``"install"``
-``options``                 Dictionary with extension options.                                                                           ``{}``       
-``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                            ``True``     
-``req_py_majver``           Required major Python version (only relevant when using system Python)                                       ``None``     
-``req_py_minver``           Required minor Python version (only relevant when using system Python)                                       ``None``     
-``runtest``                 Run unit tests.                                                                                              ``True``     
-``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed                                         ``False``    
-``unpack_sources``          Unpack sources prior to build/install                                                                        ``True``     
-``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)    ``False``    
-``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                      ``None``     
-``use_pip_editable``        Install using 'pip install --editable'                                                                       ``False``    
-``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                         ``False``    
-``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                 ``False``    
-``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                         ``False``    
-========================    =========================================================================================================    =============
+========================    ==========================================================================================================================================================    =======================================================================
+easyconfig parameter        description                                                                                                                                                   default value                                                          
+========================    ==========================================================================================================================================================    =======================================================================
+``buildcmd``                Command to pass to setup.py to build the extension                                                                                                            ``"build"``                                                            
+``check_ldshared``          Check Python value of $LDSHARED, correct if needed to "$CC -shared"                                                                                           ``None``                                                               
+``download_dep_fail``       Fail if downloaded dependencies are detected                                                                                                                  ``None``                                                               
+``install_target``          Option to pass to setup.py                                                                                                                                    ``"install"``                                                          
+``options``                 Dictionary with extension options.                                                                                                                            ``{}``                                                                 
+``pip_ignore_installed``    Let pip ignore installed Python packages (i.e. don't remove them)                                                                                             ``True``                                                               
+``pip_no_index``            Pass --no-index to pip to disable connecting to PyPi entirely which also disables the pip version check. Enabled by default when pip_ignore_installed=True    ``None``                                                               
+``req_py_majver``           Required major Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``req_py_minver``           Required minor Python version (only relevant when using system Python)                                                                                        ``None``                                                               
+``runtest``                 Run unit tests.                                                                                                                                               ``True``                                                               
+``sanity_pip_check``        Run 'pip check' to ensure all required Python packages are installed and check for any package with an invalid (0.0.0) version.                               ``False``                                                              
+``source_urls``             List of URLs for source files                                                                                                                                 ``['https://pypi.python.org/packages/source/%(nameletter)s/%(name)s']``
+``unpack_sources``          Unpack sources prior to build/install. Defaults to 'True' except for whl files                                                                                ``None``                                                               
+``unversioned_packages``    List of packages that don't have a version at all, i.e. show 0.0.0                                                                                            ``[]``                                                                 
+``use_easy_install``        Install using '%(python)s setup.py easy_install --prefix=%(prefix)s %(installopts)s %(loc)s' (deprecated)                                                     ``False``                                                              
+``use_pip``                 Install using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                                       ``None``                                                               
+``use_pip_editable``        Install using 'pip install --editable'                                                                                                                        ``False``                                                              
+``use_pip_extras``          String with comma-separated list of 'extras' to install via pip                                                                                               ``None``                                                               
+``use_pip_for_deps``        Install dependencies using 'pip install --prefix=%(prefix)s %(installopts)s %(loc)s'                                                                          ``False``                                                              
+``use_pip_requirement``     Install using 'pip install --requirement'. The sources is expected to be the requirements file.                                                               ``False``                                                              
+``use_setup_py_develop``    Install using '%(python)s setup.py develop --prefix=%(prefix)s %(installopts)s' (deprecated)                                                                  ``False``                                                              
+``zipped_egg``              Install as a zipped eggs (requires use_easy_install)                                                                                                          ``False``                                                              
+========================    ==========================================================================================================================================================    =======================================================================
 
 Customised steps in ``VersionIndependentPythonPackage`` easyblock
 -----------------------------------------------------------------

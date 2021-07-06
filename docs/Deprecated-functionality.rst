@@ -27,7 +27,6 @@ for which support will be removed in EasyBuild version 5.0.
 For EasyBuild users:
 
 * :ref:`depr_lmod6`
-* :ref:`depr_python26`
 
 For authors of easyconfig files:
 
@@ -52,21 +51,6 @@ Support for using Lmod 6.x
 
 Support for using Lmod 6.x as modules tool with EasyBuild has been deprecated,
 and will be removed in a future version of EasyBuild.
-
-
-.. _depr_python26:
-
-Support for running EasyBuild on top of Python 2.6
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* *deprecated since:* EasyBuild v4.1.0 (Nov'19)
-* *removed in:* EasyBuild v5.0
-* *alternative(s)*: **use Python 2.7 or 3.5+**
-
-Support for running EasyBuild on top of Python 2.6 has been deprecated,
-and will be removed in a future version of EasyBuild.
-
-You should upgrade to a newer version of Python (see also :ref:`py2_py3_compatibility`).
 
 
 .. _depr_dummy_toolchain:
@@ -120,7 +104,7 @@ rid of, together with supporting a better alternative.
     ERROR: EasyBuild encountered an exception (at easybuild/framework/easyconfig/easyconfig.py:937 in process_easyconfig):
     Failed to process easyconfig /home/example/gzip-1.5-goolf-1.4.10.eb:
     DEPRECATED (since v2.0) functionality used: Easyconfig parameter 'makeopts' is deprecated, use 'buildopts' instead;
-    see http://easybuild.readthedocs.org/en/latest/Deprecated-functionality.html for more informatio
+    see http://easybuild.readthedocs.org/en/latest/Deprecated-functionality.html for more information.
 
 * the code supporting the deprecated functionality is *removed* in EasyBuild version ``X.(Y+1)`` (i.e., the first
   non-bugfix-only release after version ``X.Y``), see also :ref:`removed_functionality`

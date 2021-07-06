@@ -428,10 +428,10 @@ you should use the GitHub interface, and follow the steps outlined below.
 
 i. visit https://github.com/EXAMPLE/easybuild-framework;
 ii. switch to the branch that includes the changes you want to contribute
-    using the '``Branch: master``' button on the left,
+    using the '``Branch: main``' button on the left,
     for example by selecting ``Branch: mybranch`` from the dropdown list
 iii. click the '``New pull request``' button;
-iv. change the target branch to ``develop`` using the '``base: master``' button;
+iv. change the target branch to ``develop`` using the '``base: main``' button;
 v. review your changes using the 'diff' view presented by GitHub;
 vi. provide an appropriate title and description for your contribution;
 vii. open the pull request by clicking the green '``Create pull request``' button
@@ -448,7 +448,7 @@ Updating existing pull requests
           Please consider using ``eb --update-pr`` instead, see :ref:`github_update_pr`.
 
 It is quite common to update a pull request after creating it,
-for example if Travis reports problems with the changes being made, or as a response
+for example if the test suite run in GitHub Actions reports problems with the changes being made, or as a response
 to someone reviewing your contribution.
 
 To update an existing pull request, it suffices to add commits to the branch
@@ -464,7 +464,7 @@ For example, to update the pull request that was created using the ``mybranch`` 
   git commit -m "example commit message for additional changes"
   git push origin mybranch
 
-Updating a pull request will trigger Travis to re-test your contribution,
+Updating a pull request will trigger GitHub Actions to re-test your contribution,
 and a notification will be sent out to whoever is 'watching' your pull request.
 
 
@@ -473,7 +473,7 @@ and a notification will be sent out to whoever is 'watching' your pull request.
 Merging of pull requests
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once your pull request has been given the green light by Travis and one or more
+Once your pull request has been given the green light by GitHub Actions and one or more
 people reviewing have approved the changes, it can be merged into
 the ``develop`` branch.
 
@@ -497,11 +497,11 @@ Some aspects of this are automated, others require human intervention.
 Requirements for pull requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Only pull requests (PRs) that fullfil these requirements are eligible to be merged:**
+**Only pull requests (PRs) that fulfill these requirements are eligible to be merged:**
 
 (i) *the PR must target the* ``develop`` *branch of the repository*; see :ref:`contributing_review_process_develop_branch`
 
-(ii) *the test suite must (still) pass*, i.e. Travis *must* give a green light; see :ref:`contributing_review_process_travis`
+(ii) *the test suite must (still) pass*, i.e. GitHub Actions *must* give a green light; see :ref:`contributing_review_process_travis`
 
   * *tests should be added or enhanced when appropriate*; see :ref:`contributing_review_process_adding_tests`,
     especially for PRs to the ``easybuild-framework`` repository
@@ -525,24 +525,25 @@ Requirements for pull requests
 **Pull requests are only merged in the** '``develop``' **branch** of the EasyBuild repositories,
 which contains the changes that will be included in the next EasyBuild release.
 
-The '``master``' branch provides the latest stable release of EasyBuild at all times.
-Only the EasyBuild release manager should issue a pull request to the EasyBuild '``master``' branch,
+The '``main``' branch provides the latest stable release of EasyBuild at all times.
+Only the EasyBuild release manager should issue a pull request to the EasyBuild '``main``' branch,
 when preparing a new EasyBuild release.
 
 Occasionally, an additional version branch (e.g. '``3.3.x``') may be introduced temporarily,
 in case an intermittent bugfix release is being worked on.
 
-.. _contributing_review_process_travis:
+.. _contributing_review_process_github_actions:
 
-Test suite (Travis)
-~~~~~~~~~~~~~~~~~~~
+Test suite (GitHub Actions)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Each pull request is tested automatically by Travis and the test result is reported in the pull request.
+Each pull request is tested automatically by `GitHub Actions <https://github.com/features/actions>`_
+and the test result is reported in the pull request.
 
-**Only pull requests that have been tested and approved by Travis are
+**Only pull requests that have been tested and approved by GitHub Actions are
 eligible for being merged!**
 
-Note that Travis will only run the *test suite* for that particular repository.
+Note that GitHub Actions will only run the *test suite* for that particular repository.
 That is, for easyconfig contributions it does *not* include
 actually building and installing software.
 
@@ -612,7 +613,7 @@ be contributed can be performed via ``eb --check-contrib``. This will check:
 * style aspects for the specified easyconfig files
 * whether SHA256 checksums are included for all source files & patches
 
-This check is also a part of the test suite run by Travis for easyconfig PRs.
+This check is also a part of the test suite run by GitHub Actions for easyconfig PRs.
 
 
 .. _contributing_review_process_review_pr:

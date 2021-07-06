@@ -181,9 +181,9 @@ echo "* :ref:\`List of available toolchain options <avail_toolchain_opts>\`" >> 
 #  list-toolchain doc
 echo ".. _vsd_list_toolchains:" > $VERSION_SPECIFIC_DIR/toolchains.rst
 echo >> $VERSION_SPECIFIC_DIR/toolchains.rst
-echo "*(see also* \`\`eb --list-toolchains\`\` *)*" >> $VERSION_SPECIFIC_DIR/toolchains.rst
-echo >> $VERSION_SPECIFIC_DIR/toolchains.rst
 eb --list-toolchains --output-format rst >> $VERSION_SPECIFIC_DIR/toolchains.rst
+echo >> $VERSION_SPECIFIC_DIR/toolchains.rst
+echo "*(see also* \`\`eb --list-toolchains\`\` *)*" >> $VERSION_SPECIFIC_DIR/toolchains.rst
 
 echo "* :ref:\`List of known toolchains <vsd_list_toolchains>\`" >> $overview
 
@@ -193,7 +193,7 @@ rm $temp_tc
 
 echo ".. _list_software:" > $VERSION_SPECIFIC_DIR/Supported_software.rst
 echo >> $VERSION_SPECIFIC_DIR/Supported_software.rst
-skip_lines='temporary log file|Processed.*easyconfigs|Found.*different software packages'
+skip_lines='Temporary log file|Processed.*easyconfigs|Found.*different software packages'
 eb --list-software=detailed --output-format=rst | egrep -v $skip_lines >> $VERSION_SPECIFIC_DIR/Supported_software.rst
 
 echo "* :ref:\`List of supported software <list_software>\`" >> $overview

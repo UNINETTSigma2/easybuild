@@ -67,9 +67,17 @@ The EasyBuild maintainers all have admin access to the different EasyBuild GitHu
 
 (maintainers are listed in alphabetical order, by last name)
 
+* **Sebastian Achilles** (`JSC <http://www.fz-juelich.de/ias/jsc/EN>`_)
+
+  * GitHub: `@SebastianAchilles <https://github.com/SebastianAchilles>`_ - e-mail: ``s.achilles (at) fz-juelich.de`` - IRC/Slack: ``Sebastian Achilles``
+
 * **Damian Alvarez** (`JSC <http://www.fz-juelich.de/ias/jsc/EN>`_)
 
   * GitHub: `@damianam <https://github.com/damianam>`_ - e-mail: ``d.alvarez (at) fz-juelich.de`` - IRC/Slack: ``dalvarez``
+
+* **Simon Branford** (`BEAR - University of Birmingham <https://intranet.birmingham.ac.uk/bear>`_)
+
+  * GitHub: `@branfosj <https://github.com/branfosj>`_ - e-mail: ``s.j.branford (at) bham.ac.uk`` - IRC/Slack: ``Simon``
 
 * **Miguel Dias Costa** (National University of Singapore)
 
@@ -79,6 +87,10 @@ The EasyBuild maintainers all have admin access to the different EasyBuild GitHu
 
   * GitHub: `@lexming <https://github.com/lexming>`_ - e-mail: ``alex.domingo.toro (at) vub.be`` - IRC/Slack: ``lexming``
 
+* **Bob Dröge** (`University of Groningen <https://www.rug.nl/?lang=en>`_)
+
+  * GitHub: `@bedroge <https://github.com/bedroge>`_ - e-mail: ``b.e.droge (at) rug.nl`` - IRC/Slack: ``Bob Dröge``
+
 * **Pablo Escobar** (`sciCORE, University of Basel <https://scicore.unibas.ch/>`_)
 
   * GitHub: `@pescobar <https://github.com/pescobar>`_ - e-mail: ``pablo.escobarlopez (at) unibas.ch`` - IRC/Slack: ``pescobar``
@@ -86,6 +98,10 @@ The EasyBuild maintainers all have admin access to the different EasyBuild GitHu
 * **Fotis Georgatos** (`SDSC <https://datascience.ch/>`_)
 
   * GitHub: `@fgeorgatos <https://github.com/fgeorgatos>`_ - e-mail: ``kefalonia (at) gmail.com`` - IRC/Slack: ``fotis``
+
+* **Balázs Hajgató** (`HPC-UGent <http://www.ugent.be/hpc/en>`_)
+
+  * GitHub: `@hajgato <https://github.com/hajgato>`_ - e-mail: ``balazs.hajgato (at) ugent.be`` - IRC/Slack: ``hajgato``
 
 * **Kenneth Hoste** (`HPC-UGent <http://www.ugent.be/hpc/en>`_)
 
@@ -123,9 +139,9 @@ The EasyBuild maintainers all have admin access to the different EasyBuild GitHu
 
   * GitHub: `@casparvl <https://github.com/casparvl>`_ - e-mail: ``caspar.vanleeuwen (at) surfsara.nl`` - IRC/Slack: ``Caspar Van Leeuwen``
 
-* **Davide Vanzo** (`Vanderbilt University <http://www.accre.vanderbilt.edu/>`_)
+* **Davide Vanzo** (`Microsoft <https://www.microsoft.com/>`_)
 
-  * GitHub: `@vanzod <https://github.com/vanzod>`_ - e-mail: ``davide.vanzo (at) vanderbilt.edu`` - IRC/Slack: ``vanzod``
+  * GitHub: `@vanzod <https://github.com/vanzod>`_ - e-mail: ``davide.vanzo (at) microsoft.com`` - IRC/Slack: ``vanzod``
 
 * **Lars Viklund** (`Umeå University, Sweden <http://www.umu.se/english/>`_)
 
